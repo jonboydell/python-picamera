@@ -3,4 +3,6 @@ from time import sleep
 
 camera = PiCamera()
 
-camera.capture('test-image.jpg')
+for i in range(5):
+    sleep(5)
+    camera.capture('image%s.jpg' % i)
