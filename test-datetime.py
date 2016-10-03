@@ -8,11 +8,12 @@ cont = 1
 count = 100
 
 camera = PiCamera()
+camera.resolution = (1024, 768)
 
 total_hours = 1
 hour_in_minutes = 60
 minute_in_seconds = 60
-exposures_per_minute = 4
+exposures_per_minute = 8
 
 total_exposures = total_hours * hour_in_minutes * minute_in_seconds * exposures_per_minute
 
