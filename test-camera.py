@@ -6,4 +6,4 @@ camera = PiCamera()
 for i in range(5):
     sleep(5)
     camera.capture('image%s.jpg' % i)
-    print 'captured image %s'.format(i)
+    print 'captured image {0}'.format(i)
