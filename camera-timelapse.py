@@ -29,6 +29,8 @@ number_of_minutes = 60
 minute_in_seconds = 60
 exposures_per_minute = 4
 
+print 'Usage: ./camera-timelapse.py dd/mm/yy hh:mm [minutes]'
+
 if (len(sys.argv) > 2):
     start_date_string = sys.argv[1]
     start_time_string = sys.argv[2]
