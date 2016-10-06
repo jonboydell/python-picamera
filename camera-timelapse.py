@@ -16,7 +16,8 @@ def main_loop( interval, start_date_time, end_date_time ):
         while (now > start_date_time and now < end_date_time):
             print 'shooting'
             x = x + 1
-            camera.capture('image%s.jpg' % x)
+
+            camera.capture('img%05d.jpg' % x)
             print 'waiting', interval
             time.sleep(interval)
             now = datetime.now()
