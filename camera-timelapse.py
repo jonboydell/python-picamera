@@ -40,6 +40,9 @@ if (len(sys.argv) > 2):
 if (len(sys.argv) > 3):
     number_of_minutes = int(sys.argv[3])
 
+if (len(sys.argv) > 4):
+    exposures_per_minute = int(sys.argv[4])
+
 end_date_time = start_date_time + timedelta(minutes=number_of_minutes)
 
 print 'time is now', datetime.now()
