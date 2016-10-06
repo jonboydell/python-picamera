@@ -2,7 +2,7 @@ from datetime import datetime
 import time
 from picamera import PiCamera
 
-target = datetime(2016, 10, 3, 11, 0)
+target = datetime(2016, 10, 5, 11, 0)
 end_target = datetime(2016, 10, 5, 12, 0)
 now = datetime.now()
 cont = 1
@@ -19,7 +19,7 @@ x = 0
 
 total_exposures = total_hours * hour_in_minutes * minute_in_seconds * exposures_per_minute
 
-while (now > target && now < end_target):
+while (now > target and now < end_target):
     now = datetime.now()
     print 'photo {0}'.format(x)
     camera.capture('image%s.jpg' % x)
