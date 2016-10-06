@@ -6,6 +6,24 @@ import sys
 from picamera import PiCamera
 from datetime import timedelta
 
+def main_loop( interval, start_date_time, end_date_time ):
+    camera = PiCamera()
+    camera.resolution = (1024, 768)
+    spin = True
+    x = 0
+    while (spin):
+        now = datetime.now()
+        while (now > start_date_time and now < end_date_time):
+            print 'shooting'
+            x = x + 1
+            camera.capture('image%s.jpg' % x)
+            print 'waiting', interval
+            time.sleep(interval)
+            now = datetime.now()
+            spin = False
+        time.sleep(1)
+    return
+
 start_date_time = datetime.now()
 number_of_minutes = 60
 minute_in_seconds = 60
@@ -26,23 +44,10 @@ print 'time is now', datetime.now()
 print 'will start at', start_date_time
 print 'will end at', end_date_time
 
-camera = PiCamera()
-camera.resolution = (1024, 768)
-
 interval = minute_in_seconds / exposures_per_minute
-spin = True
-x = 0
-while (spin):
-    now = datetime.now()
-    while (now > start_date_time and now < end_date_time):
-        print 'shooting'
-        x = x + 1
-        camera.capture('image%s.jpg' % x)
-        print 'waiting', interval
-        time.sleep(interval)
-        now = datetime.now()
-        spin = False
-    time.sleep(1)
+
+main_loop( interval, start_date_time, end_date_time )
+
 
 #target = datetime(2016, 10, 5, 11, 0)
 #end_target = datetime(2016, 10, 5, 12, 0)
